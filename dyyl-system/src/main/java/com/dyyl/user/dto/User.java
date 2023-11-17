@@ -1,13 +1,19 @@
 package com.dyyl.user.dto;
 
-import com.dyyl.dto.user.SysUser;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
 @Entity
 @Table(name = "sys_user")
-public class User extends SysUser {
+public class User {
+    @Id
+    private Long id;
+
+    private String name;
+
+    private String password;
 }

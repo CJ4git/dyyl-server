@@ -2,7 +2,6 @@ package com.dyyl.service;
 
 import com.dyyl.dao.UserDao;
 import com.dyyl.dto.LoginUser;
-import com.dyyl.dto.user.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,10 +23,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("=====loadUserByUsername===========");
-        SysUser user = userDao.getSysUserByName(username);
+        LoginUser user = userDao.getLoginUserByUsername(username);
         if(user == null) {
             throw new UsernameNotFoundException("用户名或密码错误！");
         }
-        return new LoginUser(user);
+        return user;
     }
 }

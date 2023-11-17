@@ -1,11 +1,11 @@
 package com.dyyl.dao;
 
-import com.dyyl.dto.user.SysUser;
+import com.dyyl.dto.LoginUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserDao extends JpaRepository<SysUser,Long> {
+public interface UserDao extends JpaRepository<LoginUser,Long> {
 
-    SysUser getSysUserByName(String name);
+    LoginUser getLoginUserByUsername(String name);
 }

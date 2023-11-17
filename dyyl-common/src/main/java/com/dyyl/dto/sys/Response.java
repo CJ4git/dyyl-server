@@ -41,6 +41,11 @@ public class Response<T> {
         return response;
     }
 
-
+    public static Response<?> error(String msg) {
+        Response<?> response = getThis();
+        response.setCode(HttpStatus.SERVERERROR.getCode());
+        response.setMsg(msg);
+        return response;
+    }
 
 }

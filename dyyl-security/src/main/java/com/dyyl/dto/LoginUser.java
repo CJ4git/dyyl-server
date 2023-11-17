@@ -1,20 +1,32 @@
 package com.dyyl.dto;
 
-import com.dyyl.dto.user.SysUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Collection;
 
 @Data
+@Entity
+@Table(name = "sys_user")
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginUser implements UserDetails {
 
-    private SysUser user;
+    @Id
+    private String id;
+
+    @Column(name = "name")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -22,32 +34,22 @@ public class LoginUser implements UserDetails {
     }
 
     @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
