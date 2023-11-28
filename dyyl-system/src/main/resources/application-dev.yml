@@ -8,3 +8,16 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+  redis:
+    host: 192.168.19.128
+    port: 6379
+    password: redis123456
+    # 默认数据库
+    database: 0
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 5
+        min-idle: 0
+        max-wait: 10
+    timeout: 500

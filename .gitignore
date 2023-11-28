@@ -1,4 +1,4 @@
-HELP.md
+dyyl-system/HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
