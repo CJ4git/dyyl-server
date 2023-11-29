@@ -1,9 +1,10 @@
-package com.dyyl.user.dto;
+package com.dyyl.dto.user;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
-public class User {
+public class SysUser {
 
     private Long id;
 
